@@ -21,11 +21,12 @@ const getUrl = async (req, res) => {
 const postUrl = async (req, res, next) => {
   try {
     // await Url.deleteMany({});
-    //const url = await Url.create(req.body);
-
+    const httpRegex = /^(http|https)(:\/\/)/;
+    if (!httpRegex.test(req.body.url)) {
+      return res.json({ error: "invalid url" });
+    }
     let a = new URL(req.body.url);
     let hostname = a.hostname;
-    console.log(hostname);
     dns.lookup(hostname, async (err) => {
       if (err) {
         return res.status(500).json({ error: "Invalid hostname" });
@@ -39,7 +40,7 @@ const postUrl = async (req, res, next) => {
       }
     });
   } catch (error) {
-    return res.status(500).json({ error: "invalid url" });
+    return res.status(501).json({ error: "invalid url" });
   }
 };
 
