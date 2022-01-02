@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    div {
+      margin-bottom: 1rem;
+    }
+  </style>
+  <body>
+    <div>
+      <h1>URL Shortener Microservice</h1>
+      <form class="url-form" method="POST" action="/api/shorturl">
+        <input name="url" type="text" class="url-input" placeholder="https://www.google.com" />
+        <button type="submit" class="url-submit">send request</button>
+      </form>
+    </div>
+    <div>
+      <p>Example Usage : This will redirect you to the short URL 1 <a href="/api/shorturl/1"> click here</a></p>
+    </div>
+    <div>by mbanani @mbdev</div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script src="./url.js"></script> -->
+  </body>
+</html>
